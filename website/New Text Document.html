@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Academy | Premium Learning</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Noto+Sans+Arabic:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #059669; /* Canlı yeşil, eğitim için ideal */
+            --dark-color: #111827;
+            --light-color: #f9fafb;
+            --transition: all 0.3s ease;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', 'Noto Sans Arabic', sans-serif; }
+        body { background-color: var(--light-color); color: var(--dark-color); line-height: 1.6; }
+
+        header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 1rem 5%;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.05);
+        }
+
+        .logo { font-size: 1.5rem; font-weight: 800; color: var(--primary-color); }
+        
+        .lang-switcher button {
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            margin-left: 5px;
+        }
+
+        section { padding: 100px 10%; text-align: center; }
+
+        /* Hero */
+        #home { background: var(--dark-color); color: white; height: 80vh; display: flex; flex-direction: column; justify-content: center; }
+        .hero-title { font-size: 3.5rem; margin-bottom: 20px; }
+
+        /* Video Section */
+        .video-container {
+            width: 100%;
+            max-width: 800px;
+            margin: 40px auto;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            background: #000;
+        }
+        video { width: 100%; display: block; }
+
+        /* Form Section */
+        #join-classes { background: white; padding: 80px 10%; }
+        .contact-form {
+            max-width: 500px;
+            margin: 40px auto;
+            text-align: left;
+            background: var(--light-color);
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+        }
+        [dir="rtl"] .contact-form { text-align: right; }
+
+        .form-group { margin-bottom: 20px; }
+        .form-group label { display: block; margin-bottom: 8px; font-weight: 600; }
+        .form-group input {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            outline: none;
+        }
+        .form-group input:focus { border-color: var(--primary-color); }
+
+        .btn-submit {
+            width: 100%;
+            padding: 15px;
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-size: 1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        .btn-submit:hover { opacity: 0.9; transform: scale(1.02); }
+
+        /* RTL Adjustments */
+        [dir="rtl"] .lang-switcher { margin-right: 20px; }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">ACADEMY PRO</div>
+        <div class="lang-switcher">
+            <button onclick="setLanguage('en')">English</button>
+            <button onclick="setLanguage('ar')">العربية</button>
+        </div>
+    </header>
+
+    <section id="home">
+        <h1 class="hero-title" data-en="Level Up Your Skills" data-ar="طور مهاراتك الآن">Level Up Your Skills</h1>
+        <p data-en="Join our professional classes today." data-ar="انضم إلى دروسنا الاحترافية اليوم.">Join our professional classes today.</p>
+    </section>
+
+    <section id="video-section">
+        <h2 data-en="Watch Our Introduction" data-ar="شاهد مقدمتنا">Watch Our Introduction</h2>
+        <div class="video-container">
+            <video controls poster="https://via.placeholder.com/800x450?text=Video+Yükleniyor">
+                <source src="video.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+    </section>
+
+    <section id="about">
+        <h2 data-en="About the Course" data-ar="حول الدورة">About the Course</h2>
+        <p style="max-width: 700px; margin: 20px auto; color: #666;" 
+           data-en="We offer high-quality lessons designed to take you from beginner to expert level. Our community is waiting for you."
+           data-ar="نقدم دروساً عالية الجودة مصممة لتأخذك من مستوى المبتدئ إلى الخبير. مجتمعنا بانتظارك.">
+           We offer high-quality lessons designed to take you from beginner to expert level. Our community is waiting for you.
+        </p>
+    </section>
+
+    <section id="join-classes">
+        <h2 data-en="Join Our Classes" data-ar="انضم إلى دروسنا">Join Our Classes</h2>
+        <div class="contact-form">
+            <div class="form-group">
+                <label data-en="Full Name" data-ar="الاسم الكامل">Full Name</label>
+                <input type="text" id="userName" placeholder="John Doe">
+            </div>
+            <div class="form-group">
+                <label data-en="Email Address" data-ar="البريد الإلكتروني">Email Address</label>
+                <input type="email" id="userEmail" placeholder="example@mail.com">
+            </div>
+            <div class="form-group">
+                <label data-en="Phone Number" data-ar="رقم الهاتف">Phone Number</label>
+                <input type="tel" id="userPhone" placeholder="+964...">
+            </div>
+            <button class="btn-submit" onclick="sendToWhatsApp()" data-en="Send to WhatsApp" data-ar="إرسال عبر واتساب">Send to WhatsApp</button>
+        </div>
+    </section>
+
+    <script>
+        function setLanguage(lang) {
+            const html = document.documentElement;
+            const elements = document.querySelectorAll('[data-en]');
+
+            if (lang === 'ar') {
+                html.setAttribute('dir', 'rtl');
+                html.setAttribute('lang', 'ar');
+                elements.forEach(el => el.textContent = el.getAttribute('data-ar'));
+            } else {
+                html.setAttribute('dir', 'ltr');
+                html.setAttribute('lang', 'en');
+                elements.forEach(el => el.textContent = el.getAttribute('data-en'));
+            }
+        }
+
+        function sendToWhatsApp() {
+            const name = document.getElementById('userName').value;
+            const email = document.getElementById('userEmail').value;
+            const phone = document.getElementById('userPhone').value;
+            
+            // BURAYA KENDİ TELEFON NUMARANI YAZ (Başında + ve ülke koduyla)
+            const myNumber = "9647753435293"; 
+
+            const message = `Hello! I want to join the class.%0A%0Name: ${name}%0AEmail: ${email}%0APhone: ${phone}`;
+            
+            if(name && email && phone) {
+                const whatsappUrl = `https://wa.me/${myNumber}?text=${message}`;
+                window.open(whatsappUrl, '_blank');
+            } else {
+                alert("Please fill in all fields! / يرجى ملء جميع الحقول");
+            }
+        }
+    </script>
+</body>
+</html>
